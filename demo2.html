@@ -1,0 +1,39 @@
+title: <{$title}><br>
+content: <{$content}><br>
+author: <{$author}><br>
+time: <{$ptime}><br>
+<!--
+<{myfun()}> <br>
+<{date("Y-m-d")}><br>
+-->
+
+
+
+<{myfun size="7" color="red" num="5" content="111<{date('H:i:s')}>111`$title`1111"}> <br>
+
+
+<{myfun num="10" size="1" color="blue"  content="7473`$con.phone.home`85741"}> <br>
+
+
+
+<{$contacts[0]}><br>
+<{$contacts[1]}><br>
+<{$contacts[2][0]}><br>
+<{$contacts[2][1]}><br>
+
+
+<{$con["fax"]}><br>
+<{$con.fax}><br>
+<{$con.phone.home}><br>
+<{$con['phone']['home']}><br>
+<{$con.phone[0]}><br>
+
+<br>
+<{$p->name}><br>
+<{$p->one()->say()}><br>
+
+<p>
+
+
+
+<{$foo_<{$bar}>}>

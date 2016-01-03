@@ -1,0 +1,50 @@
+<!--  模板内置函数的变量声明和流程控制 -->
+<{assign var="one" value="111111111"}>
+<{assign "two" value="2222222"}>
+<{$three="3333"}>
+
+<{assign var="four" value=[1,2,3,4444]}>
+<{assign var="five" value=['y'=>'yellow','b'=>'bili']}>
+<{$six=$one+$two}>
+<{$seven="$one+$two"}>
+
+<{$one}><br>
+<{$two}><br>
+<{$three}><br>
+<{$four[3]}><br>
+<{$five['b']}><{$five.b}><br>
+<{$six}><br>
+<{$seven}><br>
+<br><br><br><br><br><br><br>
+--------------else   if----------------<br>
+<!-- smarty3中没有swich case,可以利用else if 的嵌套哦实现  -->
+<!--   '==' -> 'eq','!=' -> 'neq'  ,'>'->'gt','<'->'lt'  ,'!'->'not  '    ,'%'->'mod'  更多参考文档中模板设计片->内置函数->elseif -->
+<{$a=12}>
+<{if $a eq 10}>
+	equal 10~<br>
+<{elseif $a eq 11}>
+	equal 11~<br>
+<{else}>
+	not equal~<br>
+<{/if}>
+------------------for----------------<br>
+<ul>
+		<{for $foo=1 to 10}>
+			<li><{$foo}></li>
+		<{/for}>
+</ul>
+<br>
+<ul>
+	<{$start=1}>
+	<{$end=10}>
+	<{for $foo=$start to $end step 2 max=3}><!-- 注意：step 后面不加'=',max后面要'=' ;且for中变量默认是递增的,就是说start要大鱼等于end,如果小于则执行forelse-->
+		<li><{$foo}></li>
+	<{forelse}>
+		##########<br>
+	<{/for}>
+</ul><br>
+-------------------while--------------<br>
+<{$foo=10}>
+<{while $foo gt 0}>
+	<{$foo--}><br>
+<{/while}>

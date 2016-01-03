@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title><{ $title }></title>
+	</head>
+	<style>
+		body{
+			color:red;
+		}
+	</style>
+	<body>
+		<{$content}></br>
+		<{$content}></br>
+		<{$content}></br>
+		<{$content}></br>
+		<{myfun()}></br>
+		<{date('Y-m-d')}></br>
+		<{myfun size="7" color="red" num="5" content="1111111"}><br>
+		<{myfun size="7" color="red" num="5" content="111111"}> <br>
+		<script>
+			if (false) {
+				alert(new Date());
+			};
+		</script>
+	</body>
+</html>

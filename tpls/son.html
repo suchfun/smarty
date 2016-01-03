@@ -1,0 +1,7 @@
+<{extends file="father.html"}>
+
+<{block name="title" append}> this is other title <{/block}>
+
+<{block name="content" prepend}> @@@@@@@@@@@@@@@@ <{/block}>
+
+<{block name="test"}>##<{$smarty.block.parent}>###<{/block}>

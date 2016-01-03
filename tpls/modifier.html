@@ -1,0 +1,21 @@
+<{$var}><br>
+<!--  以  变量|函数名的形式   使用调解器 -->
+<{$var|test}><br>
+<{$var|myfun:'red'}><br>
+<{$var|test:'blue':'10'}><br>
+<!-- 直接调用php的函数 -->
+<{substr($var,0,10)}><br>
+<!-- 直接将php的函数变成调解器（前提是：php函数的第一个参数是要改变的额变量本身） -->
+<{$var|sub:'0':'10'}><br>
+<!-- 将所哦有的数字替换成# -->
+<{$var|preplace:'/\d/':'#'}><br>
+<!-- 组合调解器 <{$var|test:'green':20|substr:'0':'10'}><br>-->
+<!-- <{$var|test:'green':20|substr:'0':'10'}><br> -->
+
+<{$var|substr:0:10|test:'green':7|preplace:'/[12]/':'@'}><br>
+
+<!-- 系统自带的调解器 ，详细查看文档-->
+<{$var2|capitalize}><br>
+<{$time}><br>
+
+<{$time|date_format}><br><!-- 后面可以加各种格式作为参数，参考文档 -->

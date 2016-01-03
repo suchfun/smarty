@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<table align="center" border="1" width="800">
+	<caption><h1>ecs_user  <{nocache}><{$ctime}><{/nocache}></h1></caption><!--   使用nocache中的变量不会缓存 -->
+	
+	<{foreach $data as $row}>
+		<{if $row@last}>
+			<tr bgcolor="blue">
+		<{elseif $row@first}>
+			<tr bgcolor="red">
+		<{elseif $row@index is even}>
+			<tr bgcolor="#cccccc">
+		<{else}>
+			<tr>
+		<{/if}>
+			<td><{$row@index}></td>
+			<td><{$row@iteration}></td>
+			<{foreach $row as $col}>
+				<td><{$col}></td>
+			<{/foreach}>
+		</tr>
+	<{foreachelse}>	
+		数组为空，或数组没有被分配过来
+	<{/foreach}>
+
+	<tr>
+		<td colspan="5" align="right"><{$fpage}></td>
+	</tr>
+
+</table></body>
+</html>
+
+

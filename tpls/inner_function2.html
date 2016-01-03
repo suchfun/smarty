@@ -1,0 +1,59 @@
+<!--模板内置函数中的函数声明和使用-->
+<{function name='fun1'}>
+		hello china~<br>
+		i am suchfun<br>
+<{/function}>
+------fun1------
+<{fun1}><br>
+
+<{function name="fun2" a='smarty'}>
+		<{$a}><br>
+		hello <{$country}><br>
+		i am <{$who}><br>
+<{/function}>
+----------fun2-----------<br>
+<{fun2 a="ook"  country="china" who="suchfun"}>
+-------------foreach------------<br>
+<{$lamp=['os'=>'linux','ws'=>'apache','db'=>'mysql','sc'=>'php']}>
+<!--<{foreach $arrvar as $itemvar}>
+	<{$itemvar}><br>
+<{foreachelse}>
+	error<br>
+<{/foreach}>  -->
+
+<{foreach $lamp as $key=>$value}>
+	<{$key}>=><{$value}><br>
+<{foreachelse}>
+
+<{/foreach}>
+<br>----------------------foreach   db--------------<br>
+<!--  php中分配的变量也可以在include的模板中使用 -->
+<{include file="header.html"}><br>
+<{include file="header.html" assign="header"}><!-- 将包含的模板分配给一个变量，这句代{$header}-->
+<{$header}><br>
+<table align="center" border="1" width="800">
+	<caption><h1>xs_user</h1></caption>
+	
+	<{foreach $data as $row}>
+		<{if $row@last}>
+			<tr bgcolor="blue">
+		<{elseif $row@first}>
+			<tr bgcolor="red">
+		<{elseif $row@index is even}>   <!-- 这个row的index是哦偶数 -->
+			<tr bgcolor="#cccccc">
+		<{else}>
+			<tr>
+		<{/if}>
+			<td><{$row@index}></td>  <!--  index是当前数组的索引 -->
+			<td><{$row@iteration}></td><!--  iteration是当前循环的次数-->
+			<{foreach $row as $col}>
+				<td><{$col}></td>
+			<{/foreach}>
+		</tr>
+	<{foreachelse}>	
+		数组为空，或数组没有被分配过来
+	<{/foreach}>码不显示 -->
+<
+
+</table>
+<{include file="footer.html"}>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ 	<table border="1">
+		<tr>
+			<td>id</td>
+			<td>username</td>
+			
+			
+		</tr>
+ 		<{foreach $data as $v}>
+			<tr>
+				<td><{$v.user_id}></td>
+				<td><{$v.user_name}></td>
+				
+				
+			</tr>
+	 <{/foreach}>
+	</table>
+</body>
+</html>
+
